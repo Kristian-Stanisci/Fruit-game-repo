@@ -1,0 +1,42 @@
+body{
+    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
+}
+
+.Instruksjons{
+    font-family: Arial, sans-serif;
+    font-size: large;
+    margin: 5em;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #faf5f5;
+    text-align: center;
+    box-shadow: 0 0 10px 5px #d70e0e;
+}
+
+.instructions h2 {
+    text-align: center;
+    color: #333;
+}
+.instructions p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+
+}
+
+h1{
+    text-align: center;
+
+}
+
+footer{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+button{
+    background-color: green;
+}
+
