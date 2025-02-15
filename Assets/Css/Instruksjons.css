@@ -2,8 +2,14 @@ body{
     background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
 }
 
-.Instruksjons{
-    font-family: Arial, sans-serif;
+#ContainerInstruction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Instructions{
+    font-family:monospace;
     font-size: large;
     margin: 5em;
     padding: 20px;
@@ -12,6 +18,27 @@ body{
     background-color: #faf5f5;
     text-align: center;
     box-shadow: 0 0 10px 5px #d70e0e;
+    width: 50%;
+}
+
+#How_to{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: transparent; 
+    text-shadow: 2px 2px 2px rgb(215, 201, 201);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, hsl(253, 97%, 50%), hsl(0, 94%, 49%)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+   
+}
+
+#Knapp{
+    font-weight: bold;
+    font-family:monospace;
+
 }
 
 .instructions h2 {
@@ -37,6 +64,16 @@ footer{
 }
 
 button{
-    background-color: green;
+    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
+    box-shadow: 0 0 10px 5px #d70e0e;
+    margin: 2em;
+    cursor: pointer;
 }
+
+button:hover{
+    background:red;
+    box-shadow: 0 0 10px 5px #d70e0e;
+}
+
+
 
