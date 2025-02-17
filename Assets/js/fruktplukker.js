@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
     const step = 16;
     let moveLeft = false;
     let moveRight = false;
+    let moveLeft2 = false;
+    let moveRight2 = false;
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "ArrowLeft" || event.key === "a") {
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         } else if (event.key === "ArrowRight" || event.key === "d") {
             moveRight = false;
         }
+    
     });
 
     function moveBasket() {
@@ -187,6 +190,11 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
                 Poeng += 1;
                 poengTeller.textContent = `Poeng: ${Poeng}`;
 
+                basket.classList.add('shake');
+                setTimeout(() => {
+                    basket.classList.remove('shake');
+                }, 500);
+
                 if (Poeng === totalItems) {
                     endGame(true);
                 }
@@ -200,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
             }
         }, 30);
     }
-
+    
     document.getElementById("StartGame").addEventListener("click", function() { 
         this.disabled = true;
         this.style.display = "none";

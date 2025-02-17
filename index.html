@@ -48,14 +48,15 @@
             <div id="inputModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Please select an option:</p>
+                    <p>Please select an option.</p>
                     <select id="userInput">
-                        <option value="Easy">Easy</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Hard">Hard</option>
+                        <option value="Select" class="Levels">Select</option>
+                        <option value="Easy" class="Levels">Easy</option>
+                        <option value="Medium" class="Levels">Medium</option>
+                        <option value="Hard" class="Levels">Hard</option>
                     </select>
                     <button id="submitBtn">Submit</button>
-                    <button onclick="window.location.href='Instruksjon.html'">Go to Instruksjon page</button>
+                    <button onclick="window.location.href='Instruksjon.html'" id="GoBack">Go to Instruksjon page</button>
                 </div>
             </div>
         </main>
