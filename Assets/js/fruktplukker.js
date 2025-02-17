@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
 
     let Poeng = 0;
     let createdEmojis = 0;
-    const totalItems = 30;
+    const totalItems = 20;
     const poengTeller = document.getElementById("poengTeller");
     const gameContainer = document.getElementById("game-container");
     const basket = document.getElementById("Kurv");
@@ -49,30 +49,43 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
 
     function setDifficulty(difficulty) {
         if (difficulty === "Easy") {
-            fallingSpeed = 2;
+            fallingSpeed = 3;
         } else if (difficulty === "Medium") {
-            fallingSpeed = 4;
+            fallingSpeed = 5;
         } else if (difficulty === "Hard") {
-            fallingSpeed = 6;
+            fallingSpeed = 8;
         } else {
             fallingSpeed = 3;
         }
         console.log("Falling speed set to: " + fallingSpeed);
     }
 
-    const step = 16;
+    const step = 8;
     let moveLeft = false;
     let moveRight = false;
-    let moveLeft2 = false;
-    let moveRight2 = false;
+    let boost = false;
+    const boostStep = 20;
+    const boostDuration = 1000;
+    let boosts = 0;
+    const maxBoosts = 3;
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "ArrowLeft" || event.key === "a") {
             moveLeft = true;
         } else if (event.key === "ArrowRight" || event.key === "d") {
             moveRight = true;
+        } else if (event.key === " " && boosts < maxBoosts) {
+            boost = true;
+            boosts++;
+            setTimeout(() => {
+                boost = false;
+            }, boostDuration);
+        } else if (event.key === " " && boosts >= maxBoosts) {
+            console.log("No more boosts left");
         }
     });
+
+
     
     document.addEventListener("keyup", function(event) { //Sjekker når knappen blir sluppet
         if (event.key === "ArrowLeft" || event.key === "a") {
@@ -80,18 +93,20 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         } else if (event.key === "ArrowRight" || event.key === "d") {
             moveRight = false;
         }
-    
+
     });
 
     function moveBasket() {
         if (moveLeft) {
-            KurvPosition = Math.max(0, KurvPosition - step); 
+            KurvPosition = Math.max(0, KurvPosition - (boost ? boostStep:step)); 
             basket.style.left = `${KurvPosition}px`;
         }
         if (moveRight) {
-            KurvPosition = Math.min(gameContainer.offsetWidth - basket.offsetWidth, KurvPosition + step);
+            KurvPosition = Math.min(gameContainer.offsetWidth - basket.offsetWidth, KurvPosition + (boost ? boostStep:step));
             basket.style.left = `${KurvPosition}px`;
         }
+        
+
         requestAnimationFrame(moveBasket); //Den gjør at det blir smooth å beveg kurva
     }
     
