@@ -60,14 +60,14 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         console.log("Falling speed set to: " + fallingSpeed);
     }
 
-    const step = 8;
+    const step = 12;
     let moveLeft = false;
     let moveRight = false;
     let boost = false;
     const boostStep = 20;
     const boostDuration = 1000;
     let boosts = 0;
-    const maxBoosts = 3;
+    const maxBoosts = 5;
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "ArrowLeft" || event.key === "a") {
@@ -190,6 +190,9 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
             }
             position += fallingSpeed;
             emoji.style.top = `${position}px`;
+            let velocityX = Math.sin(position/40)*10; //Posisjonen øker med 3 pga av fallingspeed, og dersom sinus blir positiv vil den gå mot høyre og negativ mot venstre, derfor blir det en bølge-aktig bevegelse. 
+            emoji.style.left = `${Math.min(Math.max(0, parseFloat(emoji.style.left) + velocityX), gameContainer.offsetWidth - emoji.offsetWidth)}px`;
+          
 
             const emojiRect = emoji.getBoundingClientRect();
             const basketRect = basket.getBoundingClientRect();

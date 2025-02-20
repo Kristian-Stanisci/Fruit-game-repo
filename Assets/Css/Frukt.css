@@ -184,8 +184,19 @@ body{
     padding: 15px 30px;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: forwards 1s ease-in-out;
 }
 
+@keyframes animation {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 #StartGame:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 8px rgba(126, 125, 125, 0.2);
