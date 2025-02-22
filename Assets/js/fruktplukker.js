@@ -44,18 +44,18 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
     basket.style.left = `${KurvPosition}px`;
 
     var gameRunning = false; //Sjekker om spillet kjører
-    let fallingSpeed = 3;
+    let fallingSpeed = 4;
 
 
     function setDifficulty(difficulty) {
         if (difficulty === "Easy") {
-            fallingSpeed = 3;
+            fallingSpeed = 4;
         } else if (difficulty === "Medium") {
-            fallingSpeed = 5;
+            fallingSpeed = 7;
         } else if (difficulty === "Hard") {
-            fallingSpeed = 8;
+            fallingSpeed = 10.5;
         } else {
-            fallingSpeed = 3;
+            fallingSpeed = 4;
         }
         console.log("Falling speed set to: " + fallingSpeed);
     }
@@ -123,8 +123,16 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
 
         const message = document.createElement("div");
         message.id = "game-message";
-        message.textContent = won ? "You won! 🎉🎉🎉" : "Game Over😒!";
+        message.innerHTML = won ? "You won! 🎉🎉🎉<br><button id='resetButton'>Play Again</button>" : "Game Over😒!<br><button id='resetButton'>Play Again</button>";
+        
         document.body.appendChild(message);
+
+        document.getElementById("resetButton").onclick = function() {
+            document.body.removeChild(message);
+            document.getElementById("StartGame").disabled = false;
+            document.getElementById("StartGame").style.display = "block";
+            location.reload(); 
+        };
 
         clearInterval(interval);
         clearInterval(checkGameLost);
@@ -137,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         Poeng = 0;
         poengTeller.textContent = `Poeng: ${Poeng}`;
 
-        
         document.querySelectorAll('.emoji').forEach(emoji => emoji.remove());
 
         interval = setInterval(() => { 
@@ -226,12 +233,14 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
             }
         }, 30);
     }
-    
+
     document.getElementById("StartGame").addEventListener("click", function() { 
         this.disabled = true;
         this.style.display = "none";
         StartGame();
-    });
+            console.log("Game started");
+        });
 });
+
 
 //Evt legge til en highscore funksjon? - som lagres i local storage?
