@@ -1,4 +1,3 @@
-
 //Jeg kommenterer ut slik at jeg kan gå tilbake å huske koden min - Kristian
 document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er ferdig lastet inn
     let inputModal = document.getElementById("inputModal"); 
@@ -37,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
     let createdEmojis = 0;
     const totalItems = 20;
     const poengTeller = document.getElementById("poengTeller");
+    const boostIgjen = document.getElementById("boostIgjen");
     const gameContainer = document.getElementById("game-container");
     const basket = document.getElementById("Kurv");
 
@@ -74,14 +74,17 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
             moveLeft = true;
         } else if (event.key === "ArrowRight" || event.key === "d") {
             moveRight = true;
-        } else if (event.key === " " && boosts < maxBoosts) {
+        } else if (event.key === " " && boosts > 0) {
+            
             boost = true;
-            boosts++;
+            boosts -= 1; 
+            boostIgjen.textContent = `Boosts: ${boosts}`;
             setTimeout(() => {
-                boost = false;
+                boost = false; 
             }, boostDuration);
-        } else if (event.key === " " && boosts >= maxBoosts) {
-            console.log("No more boosts left");
+            if (boosts === 0) {
+                console.log("No more boosts left");
+            }
         }
     });
 
@@ -144,6 +147,8 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         createdEmojis = 0;
         Poeng = 0;
         poengTeller.textContent = `Poeng: ${Poeng}`;
+        boosts = maxBoosts;
+        boostIgjen.textContent = `Boosts: ${boosts}`;
 
         document.querySelectorAll('.emoji').forEach(emoji => emoji.remove());
 
@@ -154,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
                 return;
             }
             createEmoji();
-        }, 1800); //Den her fortelle kor ofte emojian ska fall ned, i millisekunder
+        }, 1800);
 
         checkGameLost = setInterval(() => {
             if (!gameRunning) return;

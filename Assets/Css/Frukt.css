@@ -1,7 +1,6 @@
-
 #Overskrift{
     position: relative;
-    left: 4em;
+    left: 1em;
     font-size: 2em;
     font-weight: bold;
     text-align: center;
@@ -95,21 +94,28 @@ body{
     }
 }
 
-.Poeng{
+.BoostOgPoeng{
     position: absolute;
-    top:20px;
-    left: 30em;
+    top:35px;
+    right: 0;
+    transform: translate(-40%);
     font-size: 2em;
     font-weight: bold;
     text-align: center;
     color: transparent; 
     text-shadow: 2px 2px 2px rgb(215, 201, 201);
-    margin: 0;
+    margin:0;
     padding: 0;
     background: linear-gradient(to right, hsl(253, 97%, 50%), hsl(0, 94%, 49%)); 
     -webkit-background-clip: text; 
     background-clip: text; 
+    border: 2px solid rgb(9, 9, 9);
+    height: 4em;
+    width: 6em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 15px 2px #5a5959;
 }
+
     
 .modal{
     display: block; 
@@ -137,13 +143,17 @@ body{
 }
 
 #openInputModal{
-    position: relative;
-    z-index: 100;
+    position: fixed;
     background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
-    color:rgb(5, 5, 5);
+    color: rgb(5, 5, 5);
     font-family: 'Courier New', Courier, monospace;
-    right: 35em;
+    left: 2em;
+    top: 6%;
+    transform: translateY(-50%);
     margin-top: 1.5em;
+    padding: 1em;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #openInputModal:hover{
@@ -319,6 +329,3 @@ body{
 
 
 }
-
-
-
