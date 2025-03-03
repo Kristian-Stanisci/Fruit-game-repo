@@ -1,6 +1,7 @@
 body{
-    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
+    background: linear-gradient(to right, #3a7d44, #6bbf59, #a0e081, #dff6a7, #f0f7da);
 }
+
 
 #ContainerInstruction{
     display: flex;
@@ -17,7 +18,7 @@ body{
     border-radius: 10px;
     background-color: #faf5f5;
     text-align: center;
-    box-shadow: 0 0 10px 5px #d70e0e;
+    box-shadow: 0 0 10px 5px #0c4801;
     width: 50%;
 }
 
@@ -64,15 +65,21 @@ footer{
 }
 
 button{
-    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
-    box-shadow: 0 0 10px 5px #d70e0e;
+    background: linear-gradient(to right, #3a7d44, #6bbf59, #a0e081, #dff6a7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin: 2em;
     cursor: pointer;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover{
-    background:red;
-    box-shadow: 0 0 10px 5px #d70e0e;
+    background: #2e5d33;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 

@@ -1,16 +1,45 @@
-#Overskrift{
+#Overskrift {
     position: relative;
     left: 1em;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
     text-align: center;
-    color: transparent; 
-    text-shadow: 2px 2px 2px rgb(215, 201, 201);
+    color: #5a3e1b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, hsl(253, 97%, 50%), hsl(0, 94%, 49%)); 
-    -webkit-background-clip: text; 
-    background-clip: text; 
+    padding: 15px 30px;
+    background: linear-gradient(to right, #a67c52, #8b5e3c, #754c29); 
+    border-radius: 50px; 
+    border: 4px solid #5a3e1b; 
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2), 
+                0 6px 12px rgba(0, 0, 0, 0.3); 
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+#Overskrift::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #5a3e1b, #3e2a14); 
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+#Overskrift::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #5a3e1b, #3e2a14);
+    border-radius: 50%;
+    transform: translateY(-50%);
 }
 
 
@@ -22,24 +51,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
-    border: 6px solid rgb(9, 9, 9);
+    background: url('/Assets/Img/game-landscape-with-tropical-plants_105738-749.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     gap: 2em;
     margin: 0;
-    border-radius: 4em;
     overflow: hidden;
     
 }
 
-#StartGame{
-    background: linear-gradient(to right, #bb4dbb, #c71414);
-    color:rgb(246, 242, 242);
-    font-weight: bold;
-    height: 4em;
-}
 
 #game-container{
-    background: linear-gradient(to right, hsl(331, 81%, 83%), hsl(334, 86%, 56%),  hsl(303, 84%, 52%), hsl(332, 86%, 72%));
     background-size: 300% 300%;
     animation: gradientWave 8s infinite alternate ease-in-out;
     border-radius: 1em;
@@ -47,7 +70,6 @@ body{
     bottom: 0;
     width: 100%;
     height: 23%; 
-    border: 6px solid hsl(0, 0%, 3%);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -70,12 +92,11 @@ body{
   }
 
 #Kurv{
-    font-size: 5em;
+    font-size: 6em;
     position: absolute;
-    bottom: 10px;
-    width: 85px;
-    height: 90px;
-    background-size: contain;
+    bottom: 50px;
+    width: 90px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,26 +115,47 @@ body{
     }
 }
 
-.BoostOgPoeng{
+.BoostOgPoeng {
     position: absolute;
-    top:35px;
-    right: 0;
-    transform: translate(-40%);
-    font-size: 2em;
+    top: 20px;
+    right: 20px;
+    font-size: 1.8em;
     font-weight: bold;
     text-align: center;
-    color: transparent; 
-    text-shadow: 2px 2px 2px rgb(215, 201, 201);
-    margin:0;
-    padding: 0;
-    background: linear-gradient(to right, hsl(253, 97%, 50%), hsl(0, 94%, 49%)); 
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    border: 2px solid rgb(9, 9, 9);
-    height: 4em;
-    width: 6em;
-    border-radius: 0.5em;
-    box-shadow: 0 0 15px 2px #5a5959;
+    color: #fff;
+    background: linear-gradient(to bottom, #e6b800, #c29200, #8a5c00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8), 
+                 0 0 15px rgba(255, 165, 0, 0.6); 
+    padding: 15px 25px;
+    border: 3px solid #8a5c00; 
+    border-radius: 15px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3), 
+                0 6px 12px rgba(255, 165, 0, 0.4); 
+    background-color: rgba(255, 223, 0, 0.1); 
+    width: 8em;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.BoostOgPoeng:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px rgba(255, 223, 0, 0.8); 
+}
+
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(255, 223, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 223, 0, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 223, 0, 0.5); }
+}
+
+.BoostOgPoeng {
+    animation: glow 2s infinite alternate ease-in-out;
 }
 
     
@@ -132,33 +174,49 @@ body{
 
 
 
-.modal-content{
-    background-color:#fad0c4;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%; 
-    border-radius: 10px;
-    box-shadow: 0 0 10px 3px #d70e0e
+.modal-content {
+    background: linear-gradient(to bottom, #5a3e1b, #8d5a38); 
+    color: white;
+    margin: 12% auto;
+    padding: 2px;
+    border: 2px solid #3e2a14; 
+    width: 40%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-content:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 #openInputModal{
     position: fixed;
-    background: linear-gradient(to right, #ffecd2, #fcb69f, #ff9a9e, #fad0c4, #fad0c4);
-    color: rgb(5, 5, 5);
+    background: linear-gradient(to right, #3b7a57, #2d5d34, #1f3d26, #0f2917, #071a0f); 
+    color: #fff; 
     font-family: 'Courier New', Courier, monospace;
-    left: 2em;
-    top: 6%;
+    left: 1em;
+    top: 14.5%;
     transform: translateY(-50%);
     margin-top: 1.5em;
     padding: 1em;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 1em;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #2d5d34; 
+}
+
+#openInputModalContainer{
+    display: flex;
+    flex-direction: column;
 }
 
 #openInputModal:hover{
-    background: linear-gradient(to right, #ad97e1, #7fdaf0);
-    box-shadow: 0 0 10px 5px #d70e0e;
+    background: linear-gradient(to right, #5a9464, #317c4f);
+    box-shadow: 0 0 8px 3px rgba(50, 150, 50, 0.5); 
+    transition: 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .close{
@@ -207,13 +265,20 @@ body{
     border-radius: 20px;
     font-size: 1.2em;
     font-weight: bold;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background: linear-gradient(to right, #2e7d32, #66bb6a); /* Jungle green tones */
     color: white;
     cursor: pointer;
     padding: 15px 30px;
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: forwards 1s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #fff;
+}
+
+#StartGame:hover{
+    background: linear-gradient(to right, #1b5e20, #43a047); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); 
+    cursor: pointer;
 }
 
 
@@ -227,10 +292,7 @@ body{
         opacity: 1;
     }
 }
-#StartGame:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(126, 125, 125, 0.2);
-}
+
 
 #game-message{
     position: fixed;
@@ -282,50 +344,90 @@ body{
     align-items: center;
 }
 
-#submitBtn{
-    margin: 1em;
-    width: 12em;
+
+button {
+    border: none;
+    cursor: pointer;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
-#GoBack{
+
+#submitBtn {
     margin: 1em;
-    width: 12em;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
-    border: 2px solid #fffefe;
+    width: 14em;
+    background: linear-gradient(to right, #3a8b3a, #8bc34a); /* Jungle Green Gradient */
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-#GoBack:hover{
-    background: linear-gradient(to right, #e9e6ef);
-    box-shadow: 0 0 10px 5px #d70e0e;
+#submitBtn:hover {
+    background: linear-gradient(to right, #2b5d2b, #6fa936); /* Darker Green on Hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
-#userInput{
+
+#GoBack {
     margin: 1em;
-    width: 12em;
+    width: 14em;
+    background: linear-gradient(to right, #8d5a38, #c28f6d); 
+    color: white;
+    border: 2px solid #6b3f1f;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+#GoBack:hover {
+    background: linear-gradient(to right, #6b3f1f, #a47450); 
+    box-shadow: 0 0 15px rgba(165, 42, 42, 0.8); 
+    transform: scale(1.05);
+}
+
+
+#userInput {
+    margin: 1em;
+    width: 14em;
     text-align: center;
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, #8d5a38, #c28f6d);
+    border: 2px solid #8a5c00; 
+    border-radius: 8px;
+    color: rgb(252, 251, 251);
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+#userInput:hover {
+    background: linear-gradient(to right, #f6b865, #fc9065); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+#userInput option {
+    font-weight: bold;
+    background-color: #c28f6d; 
+}
+
+#highScore{
+    margin: 1em;
     padding: 0.5em;
     font-size: 1em;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
     border: 2px solid #fffefe;
+    box-shadow: 0 0 10px 5px #0a8a01;
     border-radius: 5px;
-    color: rgb(5, 5, 5);
+    color: rgb(248, 248, 248);
     cursor: pointer;
 }
 
-#userInput:hover{
-    background: linear-gradient(to right, #e9e6ef);
-    box-shadow: 0 0 10px 5px #d70e0e;
-}
 
-#userInput option{
-    font-weight:bold;
-    background-color:#fcb69f ;
-
-
-}

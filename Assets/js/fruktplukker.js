@@ -34,11 +34,14 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
 
     let Poeng = 0;
     let createdEmojis = 0;
-    const totalItems = 20;
+    const totalItems = 40;
     const poengTeller = document.getElementById("poengTeller");
     const boostIgjen = document.getElementById("boostIgjen");
     const gameContainer = document.getElementById("game-container");
     const basket = document.getElementById("Kurv");
+
+    let highscore = localStorage.getItem("highScore") || 0;
+    document.getElementById("highScore").textContent = `Highscore: ${highscore}`;
 
     let KurvPosition = gameContainer.offsetWidth / 2 - basket.offsetWidth / 2; //Setter kurven i midten
     basket.style.left = `${KurvPosition}px`;
@@ -60,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         console.log("Falling speed set to: " + fallingSpeed);
     }
 
-    const step = 12;
+    const step = 15;
     let moveLeft = false;
     let moveRight = false;
     let boost = false;
-    const boostStep = 20;
+    const boostStep = 25;
     const boostDuration = 1000;
     let boosts = 0;
     const maxBoosts = 5;
@@ -228,6 +231,14 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
                 if (Poeng === totalItems) {
                     endGame(true);
                 }
+
+                let highscore = localStorage.getItem("highScore") || 0;
+                if (Poeng > highscore) {
+                    localStorage.setItem("highScore", Poeng);
+                    highscore = Poeng;
+                }
+                console.log("Highscore: " + highscore);
+                document.getElementById("highScore").textContent = `Highscore: ${highscore}`;
             }
 
             // Øker farten hver 5 emoji, % (modulo) er resten av en divisjon
@@ -245,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
         StartGame();
             console.log("Game started");
         });
+
 });
 
 
