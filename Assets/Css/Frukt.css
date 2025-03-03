@@ -51,7 +51,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background: url('/Assets/Img/game-landscape-with-tropical-plants_105738-749.jpg');
+    background-image: url('../Img/game-landscape-with-tropical-plants_105738-749.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
