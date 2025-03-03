@@ -265,7 +265,7 @@ body{
     border-radius: 20px;
     font-size: 1.2em;
     font-weight: bold;
-    background: linear-gradient(to right, #2e7d32, #66bb6a); /* Jungle green tones */
+    background: linear-gradient(to right, #2e7d32, #66bb6a); 
     color: white;
     cursor: pointer;
     padding: 15px 30px;
@@ -360,14 +360,14 @@ button {
 #submitBtn {
     margin: 1em;
     width: 14em;
-    background: linear-gradient(to right, #3a8b3a, #8bc34a); /* Jungle Green Gradient */
+    background: linear-gradient(to right, #3a8b3a, #8bc34a); 
     color: white;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 #submitBtn:hover {
-    background: linear-gradient(to right, #2b5d2b, #6fa936); /* Darker Green on Hover */
+    background: linear-gradient(to right, #2b5d2b, #6fa936); 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
 }
