@@ -265,27 +265,32 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
                 moveRight = true;
             }
         });
+        let lastTouchX = null;
+
+        gameContainer.addEventListener("touchstart", function(event) {
+            const touch = event.touches[0];
+            lastTouchX = touch.clientX;
+        });
+
         gameContainer.addEventListener("touchmove", function(event) {
             const touch = event.touches[0];
-            if (touch.clientX < window.innerWidth / 2) {
-                moveLeft = true;
-                moveRight = false;
-            } else {
-                moveRight = true;
-                moveLeft = false;
+            if (lastTouchX !== null) {
+            const deltaX = touch.clientX - lastTouchX;
+            KurvPosition = Math.min(
+                gameContainer.offsetWidth - basket.offsetWidth,
+                Math.max(0, KurvPosition + deltaX)
+            );
+            basket.style.left = `${KurvPosition}px`;
             }
+            lastTouchX = touch.clientX;
         });
-        gameContainer.addEventListener("touchend", function(event) {
-            moveLeft = false;
-            moveRight = false;
+
+        gameContainer.addEventListener("touchend", function() {
+            lastTouchX = null;
         });
-        gameContainer.addEventListener("touchcancel", function(event) {
-            moveLeft = false;
-            moveRight = false;
-        });
-        gameContainer.addEventListener("touchleave", function(event) {
-            moveLeft = false;
-            moveRight = false;
+
+        gameContainer.addEventListener("touchcancel", function() {
+            lastTouchX = null;
         });
 });
 
