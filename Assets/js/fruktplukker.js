@@ -257,14 +257,6 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
          });
 
          //Make the game become touch sensitive for mobile phones, to play on phones also to move the basket u just drag on the screen
-        gameContainer.addEventListener("touchstart", function(event) {
-            const touch = event.touches[0];
-            if (touch.clientX < window.innerWidth / 2) {
-                moveLeft = true;
-            } else {
-                moveRight = true;
-            }
-        });
         let lastTouchX = null;
 
         gameContainer.addEventListener("touchstart", function(event) {
