@@ -431,3 +431,93 @@ button {
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    #Overskrift {
+        font-size: 1.8em;
+        padding: 10px 20px;
+        border-radius: 30px;
+    }
+
+    #Overskrift::before, #Overskrift::after {
+        width: 15px;
+        height: 15px;
+        left: -15px;
+        right: -15px;
+    }
+
+    body {
+        font-size: 14px;
+        align-items: center;
+        padding: 0 1em;
+        overflow-y: auto;
+    }
+
+    #game-container {
+        height: 30%;
+        padding: 1em;
+    }
+
+    #Kurv {
+        font-size: 4em;
+        bottom: 30px;
+        width: 70px;
+    }
+
+    .emoji {
+        font-size: 1.5em;
+    }
+
+    .BoostOgPoeng {
+        font-size: 1.2em;
+        width: 6em;
+        height: 4em;
+        padding: 10px 15px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 1em;
+    }
+
+    #openInputModal {
+        font-size: 0.9em;
+        padding: 0.8em;
+    }
+
+    #StartGameContainer {
+        padding: 1em;
+    }
+
+    #playAgain {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    #StartGame {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    #game-message {
+        font-size: 18px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    #submitBtn, #GoBack, #userInput {
+        font-size: 1em;
+        padding: 10px;
+        width: 12em;
+    }
+
+    #highScore {
+        font-size: 0.9em;
+        padding: 0.4em;
+    }
+}
