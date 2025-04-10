@@ -74,6 +74,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     overflow: hidden;
 }
 
@@ -300,7 +301,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: linear-gradient(to left top, hsl(247, 73%, 61%), #1ecb9a, #d8166a);
+    background: linear-gradient(to left top, hsl(0, 97%, 47%), #01350f, #f60414);
     color: white;
     font-size: 24px;
     border-radius: 10px;
@@ -429,5 +430,4 @@ button {
     color: rgb(248, 248, 248);
     cursor: pointer;
 }
-
 

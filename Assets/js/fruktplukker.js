@@ -249,15 +249,45 @@ document.addEventListener('DOMContentLoaded', function() { //Sjekker om siden er
             }
         }, 30);
     }
-
     document.getElementById("StartGame").addEventListener("click", function() { 
         this.disabled = true;
         this.style.display = "none";
         StartGame();
             console.log("Game started");
-        });
+         });
 
+         //Make the game become touch sensitive for mobile phones, to play on phones also to move the basket u just drag on the screen
+        gameContainer.addEventListener("touchstart", function(event) {
+            const touch = event.touches[0];
+            if (touch.clientX < window.innerWidth / 2) {
+                moveLeft = true;
+            } else {
+                moveRight = true;
+            }
+        });
+        gameContainer.addEventListener("touchmove", function(event) {
+            const touch = event.touches[0];
+            if (touch.clientX < window.innerWidth / 2) {
+                moveLeft = true;
+                moveRight = false;
+            } else {
+                moveRight = true;
+                moveLeft = false;
+            }
+        });
+        gameContainer.addEventListener("touchend", function(event) {
+            moveLeft = false;
+            moveRight = false;
+        });
+        gameContainer.addEventListener("touchcancel", function(event) {
+            moveLeft = false;
+            moveRight = false;
+        });
+        gameContainer.addEventListener("touchleave", function(event) {
+            moveLeft = false;
+            moveRight = false;
+        });
 });
 
-
+Date().toString()
 //Evt legge til en highscore funksjon? - som lagres i local storage?
